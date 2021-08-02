@@ -16,7 +16,7 @@ export const App = () => {
   const totalQuotes = !!data && data.length - 1;
 
   return (
-    <main className="quote__Container">
+    <main className="quote__Container animate__animated animate__fadeInUp">
       {isLoading ? (
         <Loader />
       ) : (
