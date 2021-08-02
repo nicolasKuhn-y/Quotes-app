@@ -9,14 +9,18 @@ export const CharacterImage = ({ query }) => {
     `https://breakingbadapi.com/api/characters?name=${query}`
   );
 
-  const { img, name } = !!data && data[0];
+  if (data === null || data.length === 0) {
+    return <Loader message="Imagen no encontrada" />;
+  }
+  
+  const { img, nickname } = !!data && data[0];
 
   return (
     <>
       {isLoading ? (
         <Loader />
       ) : (
-        <img className="quote__img" src={img} alt={name} />
+        <img className="quote__img" src={img} alt={nickname} />
       )}
     </>
   );
