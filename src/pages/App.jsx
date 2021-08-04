@@ -6,6 +6,7 @@ import { useCounter } from "../hooks/useCounter";
 import { Loader } from "../components/Loader";
 import { Quote } from "../components/Quote";
 import { ButtonContainer } from "../components/ButtonContainer";
+import { Button } from "../components/Button";
 import { CharacterImage } from "../components/CharacterImage";
 
 export const App = () => {
@@ -28,7 +29,20 @@ export const App = () => {
               quoteNumber={quoteNumber}
               totalQuotes={totalQuotes}
               actions={[decrement, reset, increment]}
-            />
+            >
+              <Button onClickAction={decrement} disabled={quoteNumber === 0}>
+                &larr;
+              </Button>
+
+              <Button onClickAction={reset}>Reset</Button>
+
+              <Button
+                onClickAction={increment}
+                disabled={quoteNumber === totalQuotes}
+              >
+                &rarr;
+              </Button>
+            </ButtonContainer>
           </Quote>
         </>
       )}
