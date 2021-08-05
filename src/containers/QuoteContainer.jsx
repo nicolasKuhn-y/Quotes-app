@@ -19,11 +19,7 @@ export const QuoteContainer = ({ data }) => {
       <CharacterImage query={author} />
 
       <Quote author={author} quote={quote}>
-        <ButtonContainer
-          quoteNumber={quoteNumber}
-          totalQuotes={totalQuotes}
-          actions={[decrement, reset, increment]}
-        >
+        <ButtonContainer>
           <Button onClickAction={decrement} disabled={quoteNumber === 0}>
             &larr;
           </Button>
