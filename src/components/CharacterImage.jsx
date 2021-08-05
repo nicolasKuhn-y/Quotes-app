@@ -4,7 +4,9 @@ import { useFetch } from "../hooks/useFetch";
 
 import { Loader } from "./Loader";
 
-export const CharacterImage = ({ query }) => {
+export const CharacterImage = React.memo(({ query }) => {
+  console.log("RENDER");
+
   const { data } = useFetch(
     `https://breakingbadapi.com/api/characters?name=${query}`
   );
@@ -20,4 +22,4 @@ export const CharacterImage = ({ query }) => {
       <img className="quote__img" src={img} alt={nickname} />
     </div>
   );
-};
+});
